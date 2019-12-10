@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebApplication10.Models;
 
 namespace WebApplication10.Data
 {
@@ -12,5 +13,7 @@ namespace WebApplication10.Data
             : base(options)
         {
         }
+        // public DbSet<WebApplication10.Models.CityClass> CityClass { get; set; }
+        public DbSet<City> City { get; set; }
     }
 }
