@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<script type="text/javascript">
+
+		$( document ).ready( function () {
+			$( "#myEditform" ).validate( {
+				rules: {
+                    Name: "required",
+                    CountryCode: "required",
+                    CountryCode: {
+                        required: true,
+                        minlength: 3,
+						maxlength: 3
+					},
+                    District: {
+						required: true
+					},
+                    Population: {
+						required: true,
+						min: 0
+					},
+	
+				},
+				messages: {
+                    Name: "Please enter the City name",
+                    CountryCode: "Country Code should maximum length of 3",
+                    District: "Please enter a District name",
+                    Population: {
+                        required: "Please enter a valid email address",
+                        min: "Please enter zero (0) or higher"
+                    },
+				},
+				errorElement: "em",
+				errorPlacement: function ( error, element ) {
+					// Add the `help-block` class to the error element
+					error.addClass( "help-block" );
+
+					if ( element.prop( "type" ) === "checkbox" ) {
+						error.insertAfter( element.parent( "label" ) );
+					} else {
+						error.insertAfter( element );
+					}
+				},
+				highlight: function ( element, errorClass, validClass ) {
+					$( element ).parents( ".form-control" ).addClass( "has-error" ).removeClass( "has-success" );
+				},
+				unhighlight: function (element, errorClass, validClass) {
+					$( element ).parents( ".form-control" ).addClass( "has-success" ).removeClass( "has-error" );
+				}
+			} );
+</script>
+
+
+
